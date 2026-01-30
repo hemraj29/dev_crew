@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-warm-200;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-cyan-50 via-sky-50 to-cyan-100 text-warm-800 font-sans antialiased;
+    @apply m-0 min-h-screen;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-cyan-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-400 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+}
+
+@layer utilities {
+  /* Terminal cursor animation */
+  .terminal-cursor {
+    @apply inline-block w-2 h-5 bg-primary-500 ml-1 animate-blink;
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-primary-500 to-accent-500;
+  }
+
+  /* Cyan blob backgrounds */
+  .cyan-blob {
+    background: radial-gradient(circle at 20% 50%, rgba(34, 211, 238, 0.3), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(45, 212, 191, 0.2), transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(6, 182, 212, 0.2), transparent 50%);
+  }
+}
