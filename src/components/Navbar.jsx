@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navbar({ onContactClick }) {
   const [scrolled, setScrolled] = useState(false);
@@ -19,106 +21,121 @@ export default function Navbar({ onContactClick }) {
     }
   };
 
+  const sectionLinks = [
+    { label: 'Build', id: 'what-we-build' },
+    { label: 'Work', id: 'work' },
+    { label: 'Crew', id: 'team' },
+  ];
+
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.21, 0.45, 0.27, 0.9] }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.21, 0.45, 0.27, 0.9] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-xl shadow-xl shadow-primary-100/50 border-b border-primary-100'
-          : 'bg-gradient-to-b from-cyan-50/80 via-sky-50/60 to-transparent backdrop-blur-sm'
+          ? 'bg-dark-950/90 backdrop-blur-2xl border-b border-neon-cyan/10 shadow-[0_4px_30px_rgba(0,240,255,0.05)]'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo - Creative Design */}
+        <div className="flex items-center justify-between h-18">
+          {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="flex items-center gap-3 cursor-pointer group"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            {/* Logo Icon */}
             <div className="relative">
-              {/* Glowing background effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-accent-400 rounded-2xl blur-md opacity-60 group-hover:opacity-100 transition-opacity"></div>
-
-              {/* Main logo box */}
-              <div className="relative w-12 h-12 bg-gradient-to-br from-primary-500 via-primary-600 to-accent-500 rounded-2xl flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform">
-                <span className="text-white font-black text-2xl font-mono">DC</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan to-neon-blue rounded-xl blur-md opacity-40 group-hover:opacity-80 transition-opacity duration-500"></div>
+              <div className="relative w-11 h-11 bg-dark-800 border border-neon-cyan/30 rounded-xl flex items-center justify-center group-hover:border-neon-cyan/60 transition-all duration-500">
+                <span className="text-neon-cyan font-black text-lg font-mono">B</span>
               </div>
-
-              {/* Pulse indicator */}
               <div className="absolute -top-1 -right-1 flex items-center justify-center">
-                <span className="absolute inline-flex h-4 w-4 rounded-full bg-green-400 opacity-75 animate-ping"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 border-2 border-white shadow-lg"></span>
+                <span className="absolute inline-flex h-3 w-3 rounded-full bg-neon-green opacity-75 animate-ping"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-neon-green"></span>
               </div>
             </div>
 
-            {/* Text */}
             <div className="flex flex-col">
-              <span className="font-black text-xl text-warm-900 tracking-tight">
-                Dev<span className="text-primary-600">Crew</span>
+              <span className="font-black text-lg text-white tracking-tight">
+                Build<span className="text-neon-cyan">io.in</span>
               </span>
-              <span className="text-[10px] font-semibold text-primary-600 tracking-wider uppercase">
-                Ship • Build • Grow
+              <span className="text-[9px] font-mono text-neon-cyan/60 tracking-[0.2em] uppercase">
+                System Online
               </span>
             </div>
           </motion.div>
 
-          {/* Center Nav - Compact Pills */}
-          <div className="hidden md:flex items-center gap-2 bg-white/80 backdrop-blur-md rounded-full px-2 py-2 shadow-lg border border-primary-100">
-            {[
-              { label: 'Build', id: 'what-we-build', icon: '⚡' },
-              { label: 'Work', id: 'work', icon: '🚀' },
-              { label: 'Crew', id: 'team', icon: '👥' },
-            ].map((link) => (
+          {/* Center Nav */}
+          <div className="hidden md:flex items-center gap-1 bg-white/[0.03] backdrop-blur-xl rounded-full px-2 py-1.5 border border-white/[0.06]">
+            {sectionLinks.map((link) => (
               <motion.button
                 key={link.id}
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection(link.id)}
-                className="group px-4 py-1.5 text-sm font-semibold text-warm-700 hover:text-white hover:bg-gradient-to-r hover:from-primary-500 hover:to-accent-500 rounded-full transition-all duration-300"
+                className="relative px-5 py-2 text-sm font-medium text-white/60 hover:text-neon-cyan rounded-full transition-all duration-300 group"
               >
-                <span className="hidden group-hover:inline mr-1">{link.icon}</span>
-                {link.label}
+                <span className="relative z-10">{link.label}</span>
+                <div className="absolute inset-0 bg-neon-cyan/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.button>
             ))}
+
+            {/* Careers as a route link */}
+            <Link to="/careers">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative px-5 py-2 text-sm font-medium text-white/60 hover:text-neon-green rounded-full transition-all duration-300 group cursor-pointer"
+              >
+                <span className="relative z-10 flex items-center gap-1.5">
+                  Careers
+                  <span className="w-1.5 h-1.5 bg-neon-green rounded-full animate-pulse"></span>
+                </span>
+                <div className="absolute inset-0 bg-neon-green/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </motion.div>
+            </Link>
           </div>
 
-          {/* CTA Button - Glowing */}
-          <motion.button
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={onContactClick}
-            className="relative group hidden md:block"
-          >
-            {/* Glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full blur opacity-60 group-hover:opacity-100 transition-opacity"></div>
+          {/* Right side actions */}
+          <div className="flex items-center gap-3">
+            {/* Theme Toggle */}
+            <ThemeToggle />
 
-            {/* Button */}
-            <div className="relative px-6 py-2.5 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-bold rounded-full shadow-lg">
-              <span className="flex items-center gap-2">
-                Let's Talk
-                <motion.span
-                  animate={{ x: [0, 3, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  →
-                </motion.span>
-              </span>
-            </div>
-          </motion.button>
+            {/* CTA Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={onContactClick}
+              className="relative group hidden md:block"
+            >
+              <div className="absolute -inset-[1px] bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple rounded-full opacity-60 group-hover:opacity-100 blur-[2px] transition-all duration-500"></div>
+              <div className="relative px-6 py-2.5 bg-dark-900 text-white font-semibold rounded-full text-sm">
+                <span className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-neon-cyan rounded-full animate-pulse-neon"></span>
+                  Initialize
+                  <motion.span
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="text-neon-cyan"
+                  >
+                    &rarr;
+                  </motion.span>
+                </span>
+              </div>
+            </motion.button>
 
-          {/* Mobile Menu Button */}
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            onClick={onContactClick}
-            className="md:hidden px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-semibold rounded-full text-sm shadow-lg"
-          >
-            Talk
-          </motion.button>
+            {/* Mobile CTA */}
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={onContactClick}
+              className="md:hidden px-4 py-2 bg-dark-800 border border-neon-cyan/30 text-neon-cyan font-semibold rounded-full text-sm"
+            >
+              Init
+            </motion.button>
+          </div>
         </div>
       </div>
     </motion.nav>

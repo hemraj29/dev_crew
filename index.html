@@ -1,11 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="We build web and mobile products that actually ship. No endless meetings. Just a small team turning your ideas into reality." />
-    <title>Professional Studio — We Build Products That Actually Ship</title>
+    <meta name="description" content="DevCrew - A futuristic dev studio building next-gen web, mobile, AI, and blockchain products. Small team. Big ideas. Ship fast." />
+    <meta name="theme-color" content="#020617" />
+    <title>DevCrew | Futuristic Dev Studio</title>
+    <script>
+      // Prevent flash of wrong theme on load
+      (function() {
+        var theme = localStorage.getItem('devcrew-theme');
+        if (theme === 'light') {
+          document.documentElement.classList.remove('dark');
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', '#dce2f2');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -5,27 +5,29 @@ import PiggyGame from './PiggyGame';
 
 export default function NotFound404() {
   return (
-    <div className="min-h-screen bg-neutral-950 flex items-center justify-center py-20">
+    <div className="min-h-screen bg-dark-950 flex items-center justify-center py-20 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 cyber-grid opacity-10 pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon-cyan/5 rounded-full blur-[200px] pointer-events-none"></div>
+
       <Container>
         <div className="max-w-3xl mx-auto text-center space-y-8">
-          {/* 404 Message */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-8xl md:text-9xl font-bold text-primary-500 mb-4">
+            <h1 className="text-8xl md:text-9xl font-black gradient-text mb-4">
               404
             </h1>
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-4">
-              Oops! Page not found
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              System Not Found
             </h2>
-            <p className="text-lg text-neutral-400 mb-8">
-              Looks like this page went on vacation. While we look for it, why not play with our pig?
+            <p className="text-lg text-white/40 mb-8 font-mono">
+              {'>'} error: page_not_found // try catching the pig while we fix it
             </p>
           </motion.div>
 
-          {/* Piggy Game */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -34,7 +36,6 @@ export default function NotFound404() {
             <PiggyGame />
           </motion.div>
 
-          {/* Back Home Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -42,12 +43,15 @@ export default function NotFound404() {
           >
             <Link
               to="/"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:scale-105"
+              className="group relative inline-flex items-center gap-2 px-6 py-3 overflow-hidden rounded-full"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple"></div>
+              <div className="absolute inset-[1px] bg-dark-950 rounded-full"></div>
+              <div className="absolute inset-[1px] bg-gradient-to-r from-neon-cyan/10 via-neon-blue/10 to-neon-purple/10 rounded-full"></div>
+              <svg className="relative z-10 w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
-              Back to Home
+              <span className="relative z-10 text-white font-semibold">Return to Base</span>
             </Link>
           </motion.div>
         </div>
