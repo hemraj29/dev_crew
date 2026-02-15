@@ -5,28 +5,36 @@ import FadeIn from '../components/FadeIn';
 
 const team = [
   {
-    name: 'Alex Chen',
-    role: 'Full-Stack Engineer',
-    what: 'Builds the systems that power your product. 8 years deep in React, Node, cloud architecture, LangChain, and AI agents.',
-    initial: 'AC',
+    name: 'Ashish',
+    role: 'Full Stack Engineer',
+    what: 'Builds complete products from frontend to backend. UI/UX specialist who codes.',
+    initial: 'AS',
     gradient: 'from-neon-cyan to-neon-blue',
-    skills: ['React', 'Node.js', 'AI/ML', 'Cloud'],
+    skills: ['React', 'Node.js', 'UI/UX', 'Full Stack'],
   },
   {
-    name: 'Sarah Martinez',
-    role: 'Product Engineer',
-    what: 'Turns ideas into interfaces people actually want to use. Obsessed with details, user experience, and AI/ML integration.',
-    initial: 'SM',
-    gradient: 'from-neon-blue to-neon-purple',
-    skills: ['UX/UI', 'React', 'Python', 'Design'],
-  },
-  {
-    name: 'Jordan Kim',
+    name: 'Ajay',
     role: 'Backend Architect',
-    what: 'Makes sure everything scales. From databases to APIs, blockchain smart contracts, and infrastructure that just works.',
-    initial: 'JK',
+    what: 'Shipped healthcare platforms, RAGbot, and scalable systems. Builds robust backend infrastructure.',
+    initial: 'AJ',
+    gradient: 'from-neon-blue to-neon-purple',
+    skills: ['Backend', 'Healthcare', 'RAGbot', 'APIs'],
+  },
+  {
+    name: 'Raj',
+    role: 'AI Engineer',
+    what: 'RAGbot creator and agentic AI specialist. Brings AI/ML intelligence to products.',
+    initial: 'RJ',
     gradient: 'from-neon-purple to-neon-pink',
-    skills: ['Systems', 'Blockchain', 'APIs', 'DevOps'],
+    skills: ['AI/ML', 'RAGbot', 'Agentic AI', 'LLMs'],
+  },
+  {
+    name: 'Pawan',
+    role: 'Infrastructure Director',
+    what: 'Cloud architecture and DevOps expert. Ensures systems scale and run smoothly.',
+    initial: 'PW',
+    gradient: 'from-neon-pink to-neon-orange',
+    skills: ['Cloud', 'DevOps', 'AWS', 'Infrastructure'],
   },
 ];
 
@@ -60,7 +68,7 @@ export default function TheTeam() {
         </FadeIn>
 
         {/* Team Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {team.map((member, index) => (
             <FadeIn key={member.name} delay={index * 0.15}>
               <motion.div

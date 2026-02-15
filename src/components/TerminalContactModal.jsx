@@ -95,7 +95,7 @@ export default function TerminalContactModal({ isOpen, onClose }) {
                   <div className="w-3 h-3 rounded-full bg-neon-green/60"></div>
                 </div>
                 <span className="text-white/30 text-xs font-mono">
-                  contact@devcrew ~ terminal
+                  buildio.in2@gmail.com ~ terminal
                 </span>
               </div>
               <button

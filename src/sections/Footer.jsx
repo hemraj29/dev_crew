@@ -58,8 +58,12 @@ export default function Footer({ onContactClick }) {
             <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/30">
               <div className="flex items-center gap-3">
                 {/* Mini logo */}
-                <div className="w-8 h-8 bg-dark-800 border border-neon-cyan/20 rounded-lg flex items-center justify-center">
-                  <span className="text-neon-cyan font-black text-xs font-mono">B</span>
+                <div className="w-8 h-8 flex items-center justify-center">
+                  <img
+                    src="/buildio-logo.png"
+                    alt="Buildio.in"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <p className="font-mono">
                   &copy; {currentYear} Buildio<span className="text-neon-cyan">.in</span> All systems operational.
@@ -68,10 +72,10 @@ export default function Footer({ onContactClick }) {
 
               <div className="flex gap-6">
                 <a
-                  href="mailto:hello@buildio.in"
+                  href="mailto:buildio.in2@gmail.com"
                   className="hover:text-neon-cyan transition-colors font-mono text-xs"
                 >
-                  hello@buildio.in
+                  buildio.in2@gmail.com
                 </a>
                 <button
                   onClick={onContactClick}

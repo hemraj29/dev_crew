@@ -5,7 +5,7 @@ const ThemeContext = createContext();
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('devcrew-theme') || 'dark';
+      return localStorage.getItem('buildio-theme') || 'dark';
     }
     return 'dark';
   });
@@ -17,7 +17,7 @@ export function ThemeProvider({ children }) {
     } else {
       root.classList.remove('dark');
     }
-    localStorage.setItem('devcrew-theme', theme);
+    localStorage.setItem('buildio-theme', theme);
 
     // Update meta theme-color
     const meta = document.querySelector('meta[name="theme-color"]');

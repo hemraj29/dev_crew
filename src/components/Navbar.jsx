@@ -49,8 +49,12 @@ export default function Navbar({ onContactClick }) {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan to-neon-blue rounded-xl blur-md opacity-40 group-hover:opacity-80 transition-opacity duration-500"></div>
-              <div className="relative w-11 h-11 bg-dark-800 border border-neon-cyan/30 rounded-xl flex items-center justify-center group-hover:border-neon-cyan/60 transition-all duration-500">
-                <span className="text-neon-cyan font-black text-lg font-mono">B</span>
+              <div className="relative w-11 h-11 flex items-center justify-center transition-all duration-500">
+                <img
+                  src="/buildio-logo.png"
+                  alt="Buildio.in Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="absolute -top-1 -right-1 flex items-center justify-center">
                 <span className="absolute inline-flex h-3 w-3 rounded-full bg-neon-green opacity-75 animate-ping"></span>

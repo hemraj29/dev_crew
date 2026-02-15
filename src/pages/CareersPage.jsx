@@ -35,12 +35,12 @@ export default function CareersPage() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan to-neon-blue rounded-xl blur-md opacity-40 group-hover:opacity-80 transition-opacity duration-500"></div>
                 <div className="relative w-11 h-11 bg-dark-800 border border-neon-cyan/30 rounded-xl flex items-center justify-center group-hover:border-neon-cyan/60 transition-all duration-500">
-                  <span className="text-neon-cyan font-black text-lg font-mono">DC</span>
+                  <span className="text-neon-cyan font-black text-lg font-mono">B</span>
                 </div>
               </div>
               <div className="flex flex-col">
                 <span className="font-black text-lg text-white tracking-tight">
-                  Dev<span className="text-neon-cyan">Crew</span>
+                  Build<span className="text-neon-cyan">io.in</span>
                 </span>
                 <span className="text-[9px] font-mono text-neon-cyan/60 tracking-[0.2em] uppercase">
                   Careers Portal

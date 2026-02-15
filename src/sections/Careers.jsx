@@ -327,8 +327,8 @@ export default function Careers() {
                 </p>
                 <p className="text-white/30 text-sm font-mono">
                   {'>'} send resume to{' '}
-                  <a href="mailto:careers@devcrew.com" className="text-neon-cyan hover:underline">
-                    careers@devcrew.com
+                  <a href="mailto:careers@buildio.in" className="text-neon-cyan hover:underline">
+                    careers@buildio.in
                   </a>
                 </p>
               </div>
